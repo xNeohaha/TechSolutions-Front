@@ -11,17 +11,7 @@ import CadastroChamados from './pages/CadastroChamados'
 import ListaChamados from './pages/ListaChamados'
 import EditarChamado from './pages/EditarChamado'
 
-const chamadosIniciais = [
-  {
-    id: Date.now(),
-    titulo: 'Computador não inicia',
-    descricao: 'Computador do laboratório não liga.',
-    prioridade: 2,
-    solicitante: 'Maria Silva',
-    status: 'ABERTO',
-  }
-
-]
+import chamadosIniciais from './data/chamados'
 
 function App() {
   const [chamados, setChamados] = useState(chamadosIniciais)
