@@ -1,6 +1,15 @@
 import { Link } from 'react-router'
 
-function ListaChamados({ chamados }) {
+function ListaChamados({ chamados, aoExcluir}) {
+function confirmarExclusao(chamado) {
+        const confirmacao = window.confirm(
+            `Deseja realmente excluir o chamado ${chamado.nome}?`
+        )
+        if (confirmacao) {
+            aoExcluir(chamado.id)
+        }
+    }
+
     return (
         <main className="pagina">
             <h1>Lista de Chamados</h1>
@@ -8,7 +17,7 @@ function ListaChamados({ chamados }) {
             <ul className="lista">
                 {chamados.map((chamado) => (
                     <li key={chamado.id}>
-                        <div className="info-chamado">
+                        <div className="info">
                             <strong>{chamado.titulo} - ID: {chamado.id}</strong>
                             <span>Descrição: {chamado.descricao} </span>
                             <span>Prioridade: {chamado.prioridade} </span>
@@ -17,7 +26,7 @@ function ListaChamados({ chamados }) {
 
                         </div>
 
-                        <div className="acoes-chamado">
+                        <div className="acoes">
                             <Link
                                 to={`/chamados/editar/${chamado.id}`}
                                 className="botao-alterar"

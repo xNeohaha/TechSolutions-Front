@@ -56,7 +56,7 @@ function App() {
     )
   }
 
-  function excluirChamados(id) {
+  function excluirChamado(id) {
 
     setChamados((listaAtual) =>
 
@@ -77,97 +77,82 @@ function App() {
     },
   ])
 
-  return (
+return (
+  <div className="aplicacao">
+
+    <Cabecalho />
 
     <Routes>
 
       {/* Página inicial */}
-
       <Route
         path="/"
         element={
+          <main className="conteudo-principal">
 
-          <div className="aplicacao">
+            <p className="introducao">
+              TechSolutions Global.
+            </p>
 
-            <Cabecalho />
+            <button
+              type="button"
+              className="botao-alternar"
+              onClick={() => setMostrarModulos(!mostrarModulos)}
+            >
+              {mostrarModulos
+                ? 'Ocultar módulos'
+                : 'Exibir módulos'}
+            </button>
 
-            <main className="conteudo-principal">
+            {mostrarModulos && (
+              <section className="modulos">
 
-              <p className="introducao">
-                TechSolutions Global.
-              </p>
+                {modulos.map((modulo) => (
+                  <CardModulo
+                    key={modulo.id}
+                    titulo={modulo.titulo}
+                    descricao={modulo.descricao}
+                    rota={modulo.rota}
+                  />
+                ))}
 
-              <button
-                type="button"
-                className="botao-alternar"
-                onClick={() => setMostrarModulos(!mostrarModulos)}
-              >
-                {mostrarModulos
-                  ? 'Ocultar módulos'
-                  : 'Exibir módulos'}
-              </button>
+              </section>
+            )}
 
-              {mostrarModulos && (
-
-                <section className="modulos">
-
-                  {modulos.map((modulo) => (
-
-                    <CardModulo
-                      key={modulo.id}
-                      titulo={modulo.titulo}
-                      descricao={modulo.descricao}
-                      rota={modulo.rota}
-                    />
-
-                  ))}
-
-                </section>
-
-              )}
-
-            </main>
-
-          </div>
-
+          </main>
         }
       />
 
       {/* Página de chamados */}
-
       <Route
-
         path="/chamados"
-
         element={<Chamados />}
-
       />
+
+      {/* Cadastro */}
       <Route
-
         path="/chamados/cadastrar"
-
         element={
           <CadastroChamados
             chamados={chamados}
             aoCadastrar={adicionarChamado}
           />
         }
-
       />
 
+      {/* Lista */}
       <Route
-
         path="/chamados/listar"
-
         element={
           <ListaChamados
             chamados={chamados}
+            aoExcluir={excluirChamado}
           />
         }
-
       />
 
-       <Route
+      {/* Edição */}
+      <Route
         path="/chamados/editar/:id"
         element={
           <EditarChamado
@@ -176,9 +161,12 @@ function App() {
           />
         }
       />
+
     </Routes>
 
-  )
+  </div>
+)
+
 }
 
 export default App

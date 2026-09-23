@@ -17,8 +17,6 @@ function EditarChamado({ chamados, aoAlterar }) {
         '')
     const [status, setStatus] = useState(chamadoEncontrado?.status ??
         '')
-
-    const [mensagemSucesso, setMensagemSucesso] = useState('')
     function alterarChamado(evento) {
         evento.preventDefault()
         const chamadoAtualizado = {
@@ -37,7 +35,7 @@ function EditarChamado({ chamados, aoAlterar }) {
     }
     if (!chamadoEncontrado) {
         return (
-            <main className="pagina-chamados">
+            <main className="pagina">
                 <h1>Chamado não encontrado</h1>
                 <Link to="/chamados/listar">
                     Voltar para a lista de chamados
@@ -47,10 +45,10 @@ function EditarChamado({ chamados, aoAlterar }) {
         )
     }
     return (
-        <main className="pagina-chamados">
+        <main className="pagina">
             <h1>Alterar chamado</h1>
             <form
-                className="formulario-chamado"
+                className="formulario"
                 onSubmit={alterarChamado}
             >
                 <label htmlFor="titulo">

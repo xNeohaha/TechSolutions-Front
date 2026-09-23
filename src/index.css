@@ -21,3 +21,14 @@ select,
 textarea {
 font: inherit;
 }
+
+.cabecalho {
+    background-color: 0f8100;
+    color: #ffffff;
+}
+
+.cabecalho-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}

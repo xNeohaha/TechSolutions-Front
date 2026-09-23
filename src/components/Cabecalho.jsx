@@ -3,6 +3,7 @@ function Cabecalho() {
       <header className="cabecalho">
         <div className="cabecalho-conteudo">
           <h1>TechSolutions</h1>
+          <h1>Anthony Pires de Araújo</h1>
           <p>Gerenciamento de Chamados</p>
         </div>
       </header>
