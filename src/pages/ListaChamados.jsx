@@ -19,10 +19,14 @@ function confirmarExclusao(chamado) {
                     <li key={chamado.id}>
                         <div className="info">
                             <strong>{chamado.titulo} - ID: {chamado.id}</strong>
-                            <span>Descrição: {chamado.descricao} </span>
-                            <span>Prioridade: {chamado.prioridade} </span>
-                            <span>solicitante: {chamado.solicitante} </span>
-                            <span>status: {chamado.status} </span>
+                            <span> <br />
+                                Descrição: {chamado.descricao} </span>
+                            <span> <br />
+                                Prioridade: {chamado.prioridade} </span>
+                            <span> <br />
+                                solicitante: {chamado.solicitante} </span>
+                            <span> <br />
+                                status: {chamado.status} </span>
 
                         </div>
 
